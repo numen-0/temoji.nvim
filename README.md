@@ -73,9 +73,8 @@ Because sometimes `._.` says more than text ever could.
 ---@field rep   string
 ---@field tags  string[]?
 
-
 temoji.setup({
-    temojis = {
+    pack = {
         ["my_temojis"] = { -- @set
             -- pack global tags (added to all)
             "my_temojis",

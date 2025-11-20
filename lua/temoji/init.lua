@@ -20,6 +20,7 @@
 
 -- modules --------------------------------------------------------------------
 
+local telescope = require("telescope")
 local utils = require("temoji.utils")
 local M = {}
 
@@ -47,6 +48,7 @@ M.config = {
             { rep = ":-)",   tags = { "happy" } },
             { rep = ":'(",   tags = { "cry", "sad" } },
             { rep = ">:(",   tags = { "angry" } },
+            { rep = "<><",   tags = { "fish" } },
         },
         ["numen-0"] = {
             "ascii",
@@ -179,7 +181,7 @@ end
 
 ---@param  tags string|string[]?
 ---@return Temoji.Entry[]
-M.filter_temojis = function (tags)
+M.filter_temojis = function(tags)
     if tags == nil or (type(tags) == "table" and #tags == 0) then
         return M.temojis
     elseif type(tags) == "string" then
@@ -204,7 +206,7 @@ end
 
 ---@param tags string[]?
 M.pick = function(tags)
-    require("telescope").extensions.temoji.temoji({ tags = tags })
+    telescope.extensions.temoji.temoji({ tags = tags })
 end
 
 ---@param tags string|string[]?
@@ -246,7 +248,7 @@ M.setup = function(opts)
     ---@diagnostic disable-next-line: param-type-mismatch
     M.temojis = utils.flatten(build_entries(M.config.packs))
 
-    require("telescope").load_extension("temoji")
+    telescope.load_extension("temoji")
 end
 
 return M
