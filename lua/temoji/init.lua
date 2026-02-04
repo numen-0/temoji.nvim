@@ -220,7 +220,7 @@ M.random = function(tags)
     end
 
     local item = entries[math.random(#entries)]
-    vim.api.nvim_put({ item.value }, "", true, true)
+    vim.api.nvim_put({ item.value }, "", false, true)
 end
 
 -- setup ----------------------------------------------------------------------

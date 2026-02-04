@@ -48,7 +48,7 @@ local function temoji_picker(opts)
             local function insert_temoji()
                 local rep = action_state.get_selected_entry().value
                 actions.close(prompt_bufnr)
-                vim.api.nvim_put({ rep }, "", true, true)
+                vim.api.nvim_put({ rep }, "", false, true)
             end
 
             map("i", "<CR>", insert_temoji)
